@@ -20,4 +20,8 @@
         <Using Include="Xunit"/>
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\..\src\ToyRobot.Domain\ToyRobot.Domain.csproj" />
+    </ItemGroup>
+
 </Project>
