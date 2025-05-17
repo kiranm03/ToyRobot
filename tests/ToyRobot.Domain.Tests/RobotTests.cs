@@ -82,4 +82,60 @@ public class RobotTests
         Assert.Equal(new Position(x, y), _robot.Position);
         Assert.Equal(direction, _robot.Direction);
     }
+    
+    [Fact]
+    public void TurnLeft_WhenRobotIsNotPlaced_DoesNotTurnRobot()
+    {
+        // Act
+        _robot.TurnLeft();
+        // Assert
+        Assert.False(_robot.IsPlaced);
+        Assert.Null(_robot.Position);
+        Assert.Null(_robot.Direction);
+    }
+    
+    [Theory]
+    [InlineData(Direction.North, Direction.West)]
+    [InlineData(Direction.East, Direction.North)]
+    [InlineData(Direction.South, Direction.East)]
+    [InlineData(Direction.West, Direction.South)]
+    public void TurnLeft_WhenRobotIsPlaced_TurnsRobotLeft(Direction placed, Direction expected)
+    {
+        // Arrange
+        _robot.Place(new Position(0, 0), placed, _table);
+        // Act
+        _robot.TurnLeft();
+        // Assert
+        Assert.True(_robot.IsPlaced);
+        Assert.Equal(new Position(0, 0), _robot.Position);
+        Assert.Equal(expected, _robot.Direction);
+    }
+    
+    [Fact]
+    public void TurnRight_WhenRobotIsNotPlaced_DoesNotTurnRobot()
+    {
+        // Act
+        _robot.TurnRight();
+        // Assert
+        Assert.False(_robot.IsPlaced);
+        Assert.Null(_robot.Position);
+        Assert.Null(_robot.Direction);
+    }
+    
+    [Theory]
+    [InlineData(Direction.North, Direction.East)]
+    [InlineData(Direction.East, Direction.South)]
+    [InlineData(Direction.South, Direction.West)]
+    [InlineData(Direction.West, Direction.North)]
+    public void TurnRight_WhenRobotIsPlaced_TurnsRobotRight(Direction placed, Direction expected)
+    {
+        // Arrange
+        _robot.Place(new Position(0, 0), placed, _table);
+        // Act
+        _robot.TurnRight();
+        // Assert
+        Assert.True(_robot.IsPlaced);
+        Assert.Equal(new Position(0, 0), _robot.Position);
+        Assert.Equal(expected, _robot.Direction);
+    }
 }

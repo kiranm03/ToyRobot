@@ -4,12 +4,12 @@ public class Robot
 {
     private Position? _position;
     private Direction? _direction;
-    private Table _table;
+    private Table _table = null!;
     
     public Position? Position => _position;
     public Direction? Direction => _direction;
     
-    public bool IsPlaced => _position is not null && _direction is not null;
+    public bool IsPlaced => _position is not null || _direction is not null;
     
     public void Place(Position position, Direction direction, Table table)
     {
@@ -29,5 +29,21 @@ public class Robot
         var newPosition = _position!.Value.Move(_direction!.Value);
         if (_table.IsValidPosition(newPosition))
             _position = newPosition;
+    }
+    
+    public void TurnLeft()
+    {
+        if (!IsPlaced)
+            return;
+        
+        _direction = _direction!.Value.TurnLeft();
+    }
+    
+    public void TurnRight()
+    {
+        if (!IsPlaced)
+            return;
+        
+        _direction = _direction!.Value.TurnRight();
     }
 }
