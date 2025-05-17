@@ -49,16 +49,37 @@ public class RobotTests
         Assert.Null(_robot.Direction);
     }
     
-    [Fact]
-    public void Move_WhenRobotIsPlaced_MovesRobot()
+    [Theory]
+    [InlineData(Direction.North, 0, 1)]
+    [InlineData(Direction.East, 1, 0)]
+    [InlineData(Direction.South, 0, 0)]
+    [InlineData(Direction.West, 0, 0)]
+    public void Move_WhenRobotIsPlacedAtOrigin_MovesRobot(Direction direction, int x, int y)
     {
         // Arrange
-        _robot.Place(new Position(0, 0), Direction.North, _table);
+        _robot.Place(new Position(0, 0), direction, _table);
         // Act
         _robot.Move();
         // Assert
         Assert.True(_robot.IsPlaced);
-        Assert.Equal(new Position(0, 1), _robot.Position);
-        Assert.Equal(Direction.North, _robot.Direction);
+        Assert.Equal(new Position(x, y), _robot.Position);
+        Assert.Equal(direction, _robot.Direction);
+    }
+    
+    [Theory]
+    [InlineData(Direction.North, 2, 3)]
+    [InlineData(Direction.East, 3, 2)]
+    [InlineData(Direction.South, 2, 1)]
+    [InlineData(Direction.West, 1, 2)]
+    public void Move_WhenRobotIsPlacedAtNonOrigin_MovesRobot(Direction direction, int x, int y)
+    {
+        // Arrange
+        _robot.Place(new Position(2, 2), direction, _table);
+        // Act
+        _robot.Move();
+        // Assert
+        Assert.True(_robot.IsPlaced);
+        Assert.Equal(new Position(x, y), _robot.Position);
+        Assert.Equal(direction, _robot.Direction);
     }
 }

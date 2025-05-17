@@ -2,13 +2,13 @@ namespace ToyRobot.Domain.Tests;
 
 public class PositionTests
 {
-    private readonly Position _position = new(0, 0);
+    private readonly Position _position = new(2, 2);
 
     [Theory]
-    [InlineData(Direction.North, 0, 1)]
-    [InlineData(Direction.East, 1, 0)]
-    [InlineData(Direction.South, 0, -1)]
-    [InlineData(Direction.West, -1, 0)]
+    [InlineData(Direction.North, 2, 3)]
+    [InlineData(Direction.East, 3, 2)]
+    [InlineData(Direction.South, 2, 1)]
+    [InlineData(Direction.West, 1, 2)]
     public void Move_WithValidDirection_ReturnsNewPosition(Direction direction, int x, int y)
     {
         // Act
