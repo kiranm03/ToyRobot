@@ -1,9 +1,12 @@
+using ToyRobot.Domain;
+
 namespace ToyRobot.Application;
 
-public class ReportCommand : ICommand
+public class ReportCommand(Robot robot)
+    : ICommand
 {
     public void Execute()
     {
-        throw new NotImplementedException();
+        Console.WriteLine($"{robot.Position} {robot.Direction}");
     }
 }

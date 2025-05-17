@@ -1,9 +1,12 @@
+using ToyRobot.Domain;
+
 namespace ToyRobot.Application;
 
-public class MoveCommand : ICommand
+public class MoveCommand(Robot robot)
+    : ICommand
 {
     public void Execute()
     {
-        throw new NotImplementedException();
+        robot.Move();
     }
 }

@@ -1,9 +1,12 @@
+using ToyRobot.Domain;
+
 namespace ToyRobot.Application;
 
-public class RightCommand : ICommand
+public class RightCommand(Robot robot) 
+    : ICommand
 {
     public void Execute()
     {
-        throw new NotImplementedException();
+        robot.TurnRight();
     }
 }

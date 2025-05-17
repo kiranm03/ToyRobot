@@ -1,9 +1,12 @@
+using ToyRobot.Domain;
+
 namespace ToyRobot.Application;
 
-public class PlaceCommand : ICommand
+public class PlaceCommand(Robot robot, Position position, Direction direction, Table table)
+    : ICommand
 {
     public void Execute()
     {
-        throw new NotImplementedException();
+        robot.Place(position, direction, table);
     }
 }
