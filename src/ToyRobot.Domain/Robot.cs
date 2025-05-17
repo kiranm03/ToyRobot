@@ -9,7 +9,7 @@ public class Robot
     public Position? Position => _position;
     public Direction? Direction => _direction;
     
-    public bool IsPlaced => _position is not null;
+    public bool IsPlaced => _position is not null && _direction is not null;
     
     public void Place(Position position, Direction direction, Table table)
     {
@@ -19,5 +19,15 @@ public class Robot
         _position = position;
         _direction = direction;
         _table = table;
+    }
+    
+    public void Move()
+    {
+        if (!IsPlaced)
+            return;
+        
+        var newPosition = _position!.Value.Move(_direction!.Value);
+        if (_table.IsValidPosition(newPosition))
+            _position = newPosition;
     }
 }
