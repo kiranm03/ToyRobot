@@ -22,13 +22,3 @@ public readonly record struct ParsedCommand(CommandType CommandType, string RawA
 {
     public static ParsedCommand Invalid => new(CommandType.Invalid);
 }
-
-public enum CommandType
-{
-    Place,
-    Move,
-    Left,
-    Right,
-    Report,
-    Invalid
-}
