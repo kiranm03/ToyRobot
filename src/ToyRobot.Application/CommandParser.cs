@@ -2,12 +2,12 @@ namespace ToyRobot.Application;
 
 public class CommandParser
 {
-    public ParseResult Parse(string input)
+    public ParseResult Parse(string? input)
     {
         if (string.IsNullOrWhiteSpace(input)) 
             return ParseResult.Invalid;
         
-        var inputParts = input.Trim().Split(' ', 2);
+        var inputParts = input.Trim().Split(' ', 2, StringSplitOptions.TrimEntries | StringSplitOptions.RemoveEmptyEntries);
         var commandText = inputParts[0];
         var rawArgs = inputParts.Length > 1 ? inputParts[1] : string.Empty;
 
