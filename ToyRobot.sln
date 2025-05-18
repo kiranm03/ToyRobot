@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToyRobot.Domain.Tests", "te
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToyRobot.Application", "src\ToyRobot.Application\ToyRobot.Application.csproj", "{9681A0D8-5FA7-4CC0-9024-0ADBA005D214}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToyRobot.Console", "src\ToyRobot.Console\ToyRobot.Console.csproj", "{CB994963-FC11-4A44-8DE3-1512AFECF84E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +32,9 @@ Global
 		{9681A0D8-5FA7-4CC0-9024-0ADBA005D214}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9681A0D8-5FA7-4CC0-9024-0ADBA005D214}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9681A0D8-5FA7-4CC0-9024-0ADBA005D214}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CB994963-FC11-4A44-8DE3-1512AFECF84E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CB994963-FC11-4A44-8DE3-1512AFECF84E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CB994963-FC11-4A44-8DE3-1512AFECF84E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CB994963-FC11-4A44-8DE3-1512AFECF84E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
