@@ -15,7 +15,6 @@ public class RobotTests
         // Act
         _robot.Place(position, direction);
         // Assert
-        Assert.True(_robot.IsPlaced);
         Assert.Equal(position, _robot.Position);
         Assert.Equal(direction, _robot.Direction);
     }
@@ -32,7 +31,6 @@ public class RobotTests
         // Act
         _robot.Place(position, direction);
         // Assert
-        Assert.False(_robot.IsPlaced);
         Assert.Null(_robot.Position);
         Assert.Null(_robot.Direction);
     }
@@ -43,7 +41,6 @@ public class RobotTests
         // Act
         _robot.Move();
         // Assert
-        Assert.False(_robot.IsPlaced);
         Assert.Null(_robot.Position);
         Assert.Null(_robot.Direction);
     }
@@ -60,7 +57,6 @@ public class RobotTests
         // Act
         _robot.Move();
         // Assert
-        Assert.True(_robot.IsPlaced);
         Assert.Equal(new Position(x, y), _robot.Position);
         Assert.Equal(direction, _robot.Direction);
     }
@@ -77,7 +73,6 @@ public class RobotTests
         // Act
         _robot.Move();
         // Assert
-        Assert.True(_robot.IsPlaced);
         Assert.Equal(new Position(x, y), _robot.Position);
         Assert.Equal(direction, _robot.Direction);
     }
@@ -88,7 +83,6 @@ public class RobotTests
         // Act
         _robot.TurnLeft();
         // Assert
-        Assert.False(_robot.IsPlaced);
         Assert.Null(_robot.Position);
         Assert.Null(_robot.Direction);
     }
@@ -105,7 +99,6 @@ public class RobotTests
         // Act
         _robot.TurnLeft();
         // Assert
-        Assert.True(_robot.IsPlaced);
         Assert.Equal(new Position(0, 0), _robot.Position);
         Assert.Equal(expected, _robot.Direction);
     }
@@ -116,7 +109,6 @@ public class RobotTests
         // Act
         _robot.TurnRight();
         // Assert
-        Assert.False(_robot.IsPlaced);
         Assert.Null(_robot.Position);
         Assert.Null(_robot.Direction);
     }
@@ -133,7 +125,6 @@ public class RobotTests
         // Act
         _robot.TurnRight();
         // Assert
-        Assert.True(_robot.IsPlaced);
         Assert.Equal(new Position(0, 0), _robot.Position);
         Assert.Equal(expected, _robot.Direction);
     }
