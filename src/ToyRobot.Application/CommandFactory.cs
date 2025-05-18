@@ -6,12 +6,12 @@ namespace ToyRobot.Application;
 
 public class CommandFactory(Robot robot)
 {
-    public ICommand Create(ParsedCommand parsedCommand)
+    public ICommand Create(ParseResult parseResult)
     {
         
-        return parsedCommand.CommandType switch
+        return parseResult.CommandType switch
         {
-            CommandType.Place => CreatePlaceCommand(parsedCommand.RawArgs),
+            CommandType.Place => CreatePlaceCommand(parseResult.RawArgs),
             CommandType.Move => new MoveCommand(robot),
             CommandType.Left => new LeftCommand(robot),
             CommandType.Right => new RightCommand(robot),
