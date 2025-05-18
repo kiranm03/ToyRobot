@@ -1,10 +1,10 @@
 using ToyRobot.Application.Commands;
 using ToyRobot.Domain;
-using System;
+using ToyRobot.Application.Abstractions;
 
 namespace ToyRobot.Application;
 
-public class CommandFactory(Robot robot)
+public class CommandFactory(Robot robot, IOutputWriter outputWriter)
 {
     public ICommand Create(ParseResult parseResult)
     {
@@ -15,7 +15,7 @@ public class CommandFactory(Robot robot)
             CommandType.Move => new MoveCommand(robot),
             CommandType.Left => new LeftCommand(robot),
             CommandType.Right => new RightCommand(robot),
-            CommandType.Report => new ReportCommand(robot),
+            CommandType.Report => new ReportCommand(robot, outputWriter),
             _ => new NoOpCommand()
         };
     }

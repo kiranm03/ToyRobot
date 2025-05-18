@@ -1,5 +1,6 @@
 using ToyRobot.Application.Commands;
 using ToyRobot.Domain;
+using ToyRobot.Infrastructure;
 
 namespace ToyRobot.Application.Tests;
 
@@ -10,7 +11,7 @@ public class CommandFactoryTests
     public CommandFactoryTests()
     {
         var robot = new Robot(new Table());
-        _commandFactory = new CommandFactory(robot);
+        _commandFactory = new CommandFactory(robot, new ConsoleOutputWriter());
     }
 
     [Theory]

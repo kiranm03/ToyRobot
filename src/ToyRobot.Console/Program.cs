@@ -1,7 +1,9 @@
 using Microsoft.Extensions.DependencyInjection;
 using ToyRobot.Application;
+using ToyRobot.Application.Abstractions;
 using ToyRobot.Console;
 using ToyRobot.Domain;
+using ToyRobot.Infrastructure;
 
 var services = new ServiceCollection();
 
@@ -11,6 +13,8 @@ var robot = new Robot(table);
 services.AddSingleton(robot);
 services.AddSingleton<CommandParser>();
 services.AddSingleton<CommandFactory>();
+services.AddSingleton<IInputReader, ConsoleInputReader>();
+services.AddSingleton<IOutputWriter, ConsoleOutputWriter>();
 services.AddSingleton<App>();
 
 var provider = services.BuildServiceProvider();

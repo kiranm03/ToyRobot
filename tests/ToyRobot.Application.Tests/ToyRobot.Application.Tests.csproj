@@ -21,6 +21,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\..\src\ToyRobot.Application\ToyRobot.Application.csproj" />
+      <ProjectReference Include="..\..\src\ToyRobot.Infrastructure\ToyRobot.Infrastructure.csproj" />
     </ItemGroup>
 
 </Project>

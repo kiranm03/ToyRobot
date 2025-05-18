@@ -1,12 +1,13 @@
+using ToyRobot.Application.Abstractions;
 using ToyRobot.Domain;
 
 namespace ToyRobot.Application.Commands;
 
-public class ReportCommand(Robot robot)
+public class ReportCommand(Robot robot, IOutputWriter outputWriter)
     : ICommand
 {
     public void Execute()
     {
-        Console.WriteLine($"{robot.Position},{robot.Direction}");
+        outputWriter.WriteLine($"{robot.Position},{robot.Direction}");
     }
 }
