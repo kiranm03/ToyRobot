@@ -1,6 +1,6 @@
 using ToyRobot.Domain;
 
-namespace ToyRobot.Application;
+namespace ToyRobot.Application.Commands;
 
 public class MoveCommand(Robot robot)
     : ICommand

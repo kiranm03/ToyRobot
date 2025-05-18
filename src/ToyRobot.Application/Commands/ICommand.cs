@@ -1,4 +1,4 @@
-namespace ToyRobot.Application;
+namespace ToyRobot.Application.Commands;
 
 public interface ICommand
 {
