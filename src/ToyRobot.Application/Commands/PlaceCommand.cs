@@ -2,11 +2,12 @@ using ToyRobot.Domain;
 
 namespace ToyRobot.Application.Commands;
 
-public class PlaceCommand(Robot robot, Position position, Direction direction, Table table)
+public class PlaceCommand(Robot robot, int x, int y, Direction direction)
     : ICommand
 {
     public void Execute()
     {
-        robot.Place(position, direction, table);
+        var position = new Position(x, y);
+        robot.Place(position, direction);
     }
 }
