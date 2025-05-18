@@ -2,8 +2,7 @@ namespace ToyRobot.Domain.Tests;
 
 public class RobotTests
 {
-    private readonly Robot _robot = new();
-    private readonly Table _table = new();
+    private readonly Robot _robot = new(new Table());
     
     [Theory]
     [InlineData(0, 0, Direction.North)]
@@ -14,7 +13,7 @@ public class RobotTests
         // Arrange
         var position = new Position(x, y);
         // Act
-        _robot.Place(position, direction, _table);
+        _robot.Place(position, direction);
         // Assert
         Assert.True(_robot.IsPlaced);
         Assert.Equal(position, _robot.Position);
@@ -31,7 +30,7 @@ public class RobotTests
         // Arrange
         var position = new Position(x, y);
         // Act
-        _robot.Place(position, direction, _table);
+        _robot.Place(position, direction);
         // Assert
         Assert.False(_robot.IsPlaced);
         Assert.Null(_robot.Position);
@@ -57,7 +56,7 @@ public class RobotTests
     public void Move_WhenRobotIsPlacedAtOrigin_MovesRobot(Direction direction, int x, int y)
     {
         // Arrange
-        _robot.Place(new Position(0, 0), direction, _table);
+        _robot.Place(new Position(0, 0), direction);
         // Act
         _robot.Move();
         // Assert
@@ -74,7 +73,7 @@ public class RobotTests
     public void Move_WhenRobotIsPlacedAtNonOrigin_MovesRobot(Direction direction, int x, int y)
     {
         // Arrange
-        _robot.Place(new Position(2, 2), direction, _table);
+        _robot.Place(new Position(2, 2), direction);
         // Act
         _robot.Move();
         // Assert
@@ -102,7 +101,7 @@ public class RobotTests
     public void TurnLeft_WhenRobotIsPlaced_TurnsRobotLeft(Direction placed, Direction expected)
     {
         // Arrange
-        _robot.Place(new Position(0, 0), placed, _table);
+        _robot.Place(new Position(0, 0), placed);
         // Act
         _robot.TurnLeft();
         // Assert
@@ -130,7 +129,7 @@ public class RobotTests
     public void TurnRight_WhenRobotIsPlaced_TurnsRobotRight(Direction placed, Direction expected)
     {
         // Arrange
-        _robot.Place(new Position(0, 0), placed, _table);
+        _robot.Place(new Position(0, 0), placed);
         // Act
         _robot.TurnRight();
         // Assert
