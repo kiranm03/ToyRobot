@@ -7,6 +7,6 @@ public class ReportCommand(Robot robot)
 {
     public void Execute()
     {
-        Console.WriteLine($"{robot.Position} {robot.Direction}");
+        Console.WriteLine($"{robot.Position},{robot.Direction}");
     }
 }
