@@ -1,6 +1,6 @@
 namespace ToyRobot.Domain;
 
-public sealed class Table
+public readonly record struct Table
 {
     private const int Width = 5;
     private const int Height = 5;

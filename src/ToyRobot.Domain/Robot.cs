@@ -4,7 +4,7 @@ public class Robot
 {
     private Position? _position;
     private Direction? _direction;
-    private Table _table = null!;
+    private Table _table;
     
     public Position? Position => _position;
     public Direction? Direction => _direction;
