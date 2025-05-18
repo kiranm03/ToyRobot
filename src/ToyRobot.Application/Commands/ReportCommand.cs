@@ -8,6 +8,7 @@ public class ReportCommand(Robot robot, IOutputWriter outputWriter)
 {
     public void Execute()
     {
-        outputWriter.WriteLine($"{robot.Position},{robot.Direction}");
+        if (robot is { Direction: not null, Position: not null })
+            outputWriter.WriteLine($"{robot.Position},{robot.Direction.ToString()?.ToUpperInvariant()}");
     }
 }
