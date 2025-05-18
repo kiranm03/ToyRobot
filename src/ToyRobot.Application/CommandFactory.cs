@@ -22,7 +22,10 @@ public class CommandFactory(Robot robot)
 
     private ICommand CreatePlaceCommand(string rawArgs)
     {
-        var args = rawArgs.Split(',');
+        if(string.IsNullOrWhiteSpace(rawArgs)) 
+            return new NoOpCommand();
+        
+        var args = rawArgs.Split(',', StringSplitOptions.TrimEntries | StringSplitOptions.RemoveEmptyEntries);
 
         if (args.Length != 3 ||
             !int.TryParse(args[0], out var x) ||
